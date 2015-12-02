@@ -4,12 +4,14 @@ float f;
 float x1, x2, x3, y1, y2, y3;
 float w, h;
 float a1, a2, a3;
+float q;
 //defined PImages
 PImage landscape;
 PImage snowflake;
 PImage snowman1;
 PImage snowman2;
 PImage snowman3;
+PImage holiday;
 
 
 
@@ -22,6 +24,7 @@ void setup() {
   snowman1 = loadImage ("snowman1.png");
   snowman2 = loadImage ("snowman2.png");
   snowman3 = loadImage ("snowman3.png");
+  holiday = loadImage ("happy-holidays-gif.gif");
   //gave variables values
   time = 0;
   f = 60;
@@ -36,6 +39,7 @@ void setup() {
   a1=2;
   a2=-2;
   a3=2;
+  q=1;
 }
 
 void draw () {
@@ -45,6 +49,7 @@ void draw () {
   time ++ ;
   //after so long have a blend happen
   if (time > f) {
+    q ++ ;
     filter (GRAY);
     blend (snowflake, 0, 0, 1920, 1080, 0, 0, width, height, ADD);
     //gave the pieces of the snowman values and acceleration so the fit into a snowman
@@ -63,5 +68,7 @@ void draw () {
     if (x3 > width/2-25) {
       a3=0;
     }
-  }
+    image (holiday, 50,50, 700, 300);
+
+}
 }
