@@ -21,9 +21,9 @@ void setup() {
   //loaded images 
   landscape = loadImage ("flatLandscape.jpg");
   snowflake = loadImage ("snowflakes.jpg");
-  snowman1 = loadImage ("snowman1.png");
-  snowman2 = loadImage ("snowman2.png");
-  snowman3 = loadImage ("snowman3.png");
+  snowman1 = loadImage ("1snowman.png");
+  snowman2 = loadImage ("2snowman.png");
+  snowman3 = loadImage ("3snowman.png");
   holiday = loadImage ("happy-holidays-gif.gif");
   //gave variables values
   time = 0;
@@ -31,11 +31,11 @@ void setup() {
   x1= 0;
   x2= 700;
   x3= 0;
-  y1= 460;
+  y1= 500;
   y2= 500;
-  y3= 550;
-  w = 50;
-  h = 50;
+  y3= 495;
+  w = 100;
+  h = 100;
   a1=2;
   a2=-2;
   a3=2;
@@ -55,19 +55,21 @@ void draw () {
     //gave the pieces of the snowman values and acceleration so the fit into a snowman
     image (snowman1, x1, y1, w, h);
     x1 += a1;
-    if (x1 > width/2-25) {
+    if (x1 > width/2-60) {
       a1=0;
     }
-    image (snowman2, x2, y2, w*2, h);
+    image (snowman2, x2, y2, w, h);
     x2 += a2;
-    if (x2 < width/2-50) {
+    if (x2 < width/2-57) {
       a2=0 ;
     }
     image (snowman3, x3, y3, w, h);
     x3 += a3;
-    if (x3 > width/2-25) {
+    if (x3 > width/2-60) {
       a3=0;
     }
-    image (holiday, 50, 50, 700, 300);
+    if (a2==0) {
+      image (holiday, 50, 50, 700, 300);
+    }
   }
 }
